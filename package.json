@@ -1,5 +1,5 @@
 {
-  "name": "@thattokengirl/http",
+  "name": "@thattokengirl-utilities/http",
   "version": "1.0.0",
   "description": "An abstraction to make http requests",
   "main": "lib/index.js",
