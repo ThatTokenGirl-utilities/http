@@ -54,10 +54,22 @@ describe("function: set", () => {
       }
     );
   });
+
+  test("can set single header for undefined", () => {
+    performTestSingleHeader(undefined, "header", "value", { header: "value" });
+  });
+
+  test("can set multiple header for undefined", () => {
+    performTestMultipleHeaders(
+      undefined,
+      { header1: "value-1", header2: "value-2" },
+      { header1: "value-1", header2: "value-2" }
+    );
+  });
 });
 
 function performTestSingleHeader(
-  current: HttpHeaders,
+  current: HttpHeaders | undefined,
   name: string,
   value: string | string[],
   expected: HttpHeaders
@@ -68,7 +80,7 @@ function performTestSingleHeader(
 }
 
 function performTestMultipleHeaders(
-  current: HttpHeaders,
+  current: HttpHeaders | undefined,
   toSet: HttpHeaders,
   expected: HttpHeaders
 ) {

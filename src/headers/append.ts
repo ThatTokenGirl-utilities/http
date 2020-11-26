@@ -1,17 +1,17 @@
 import { HttpHeaders } from "./+types";
 
 export default function append(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined,
   name: string,
   value: string | string[]
 ): HttpHeaders;
 export default function append(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined,
   toAppend: HttpHeaders
 ): HttpHeaders;
 
 export default function append(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined = {},
   nameOrObj: HttpHeaders | string,
   value?: string | string[]
 ): HttpHeaders {

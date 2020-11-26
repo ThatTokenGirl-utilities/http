@@ -1,17 +1,17 @@
 import { HttpHeaders } from "./+types";
 
 export default function modify(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined,
   name: string,
   value: string | string[]
 ): HttpHeaders;
 export default function modify(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined,
   toSet: HttpHeaders
 ): HttpHeaders;
 
 export default function modify(
-  headers: HttpHeaders,
+  headers: HttpHeaders | undefined = {},
   nameOrObj: string | HttpHeaders,
   value?: string | string[]
 ): HttpHeaders {
