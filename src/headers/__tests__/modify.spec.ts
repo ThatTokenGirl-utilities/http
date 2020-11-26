@@ -1,7 +1,7 @@
 import { HttpHeaders } from "../+types";
 import modify from "../modify";
 
-describe("function: set", () => {
+describe("function: modify", () => {
   test("set new string header value", () => {
     performTestSingleHeader({}, "new-header", "new-value", {
       "new-header": "new-value",
