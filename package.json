@@ -1,8 +1,9 @@
 {
-  "name": "thattokengirl_http",
+  "name": "@thattokengirl/http",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "An abstraction to make http requests",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
