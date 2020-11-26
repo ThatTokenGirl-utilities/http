@@ -10,7 +10,6 @@
     "build": "tsc",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
-    "preversion": "npm run lint",
     "postversion": "git push && git push --tags",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m \"updated CHANGELOG.md\" && npm version major",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m \"updated CHANGELOG.md\" && npm version minor",
@@ -18,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThatTokenGirl-utilities/http.git"
+    "url": "git://github.com/ThatTokenGirl-utilities/http.git"
   },
   "author": "",
   "license": "ISC",
