@@ -18,6 +18,22 @@
 
 ##### Chores
 
+*  remove unused package script and add .npmrc file ([88aa6a35](https://github.com/ThatTokenGirl-utilities/http/commit/88aa6a356eb1d076f6b366aeff16498df3386ad6))
+*  add build folder ([6883f588](https://github.com/ThatTokenGirl-utilities/http/commit/6883f5888fc6e1432d1f220fd48f2c8b278656ec))
+*  change lib folder back to src ([7c2c83e4](https://github.com/ThatTokenGirl-utilities/http/commit/7c2c83e4acd7b0bf9a22c59a4d7d8a9797756520))
+*  setup package name, description, and main file ([e7cb2498](https://github.com/ThatTokenGirl-utilities/http/commit/e7cb2498e3e2891bce65a889159e809a4e4b2db8))
+*  update scripts in package json ([6f2db750](https://github.com/ThatTokenGirl-utilities/http/commit/6f2db7508788893d4bc7f26fc8822a2071bc92d7))
+*  rename src to lib ([9bf5890a](https://github.com/ThatTokenGirl-utilities/http/commit/9bf5890a6bec78f0b84171bb75b8834350388dca))
+*  modify package.json for automate releases to npm ([5a353743](https://github.com/ThatTokenGirl-utilities/http/commit/5a35374397906860a0ef5224c3516a5b4b47ee6e))
+
+##### Bug Fixes
+
+*  export public api ([0d0a36df](https://github.com/ThatTokenGirl-utilities/http/commit/0d0a36df31dc954b842d9353e4947df6296414c1))
+
+#### 1.0.1 (2020-11-26)
+
+##### Chores
+
 *  add build folder ([6883f588](https://github.com/ThatTokenGirl-utilities/http/commit/6883f5888fc6e1432d1f220fd48f2c8b278656ec))
 *  change lib folder back to src ([7c2c83e4](https://github.com/ThatTokenGirl-utilities/http/commit/7c2c83e4acd7b0bf9a22c59a4d7d8a9797756520))
 *  setup package name, description, and main file ([e7cb2498](https://github.com/ThatTokenGirl-utilities/http/commit/e7cb2498e3e2891bce65a889159e809a4e4b2db8))
