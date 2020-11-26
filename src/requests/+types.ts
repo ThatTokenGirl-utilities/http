@@ -1,4 +1,5 @@
 import { HttpHeaders } from "../headers";
+import { Middleware } from "../middleware/+types";
 
 export interface HttpRequest {
   readonly url: string;
@@ -25,3 +26,19 @@ export type HttpResponse = {
 };
 
 export type Requester = (req: HttpRequest) => Promise<HttpResponse>;
+
+type RequestOptions = {
+  headers?: HttpHeaders;
+};
+
+export type HttpClient = {
+  request(
+    request: HttpRequest,
+    ...middleware: Middleware[]
+  ): Promise<HttpResponse>;
+
+  get(url: string, opt?: RequestOptions): Promise<HttpResponse>;
+  put(url: string, data?: any, opt?: RequestOptions): Promise<HttpResponse>;
+  post(url: string, data?: any, opt?: RequestOptions): Promise<HttpResponse>;
+  delete(url: string, opt?: RequestOptions): Promise<HttpResponse>;
+};

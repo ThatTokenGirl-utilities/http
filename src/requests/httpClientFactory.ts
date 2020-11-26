@@ -1,22 +1,5 @@
-import { HttpHeaders } from "../headers";
 import { Middleware, MiddlewareHandler } from "../middleware/+types";
-import { HttpRequest, HttpResponse, Requester } from "./+types";
-
-type RequestOptions = {
-  headers?: HttpHeaders;
-};
-
-type HttpClient = {
-  request(
-    request: HttpRequest,
-    ...middleware: Middleware[]
-  ): Promise<HttpResponse>;
-
-  get(url: string, opt?: RequestOptions): Promise<HttpResponse>;
-  put(url: string, data?: any, opt?: RequestOptions): Promise<HttpResponse>;
-  post(url: string, data?: any, opt?: RequestOptions): Promise<HttpResponse>;
-  delete(url: string, opt?: RequestOptions): Promise<HttpResponse>;
-};
+import { HttpClient, HttpRequest, Requester } from "./+types";
 
 export default function httpClientFactory(
   requester: Requester,
