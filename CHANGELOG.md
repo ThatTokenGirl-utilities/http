@@ -1,3 +1,9 @@
+#### 1.0.4 (2020-11-27)
+
+##### Bug Fixes
+
+*  export middleware types ([34809ea4](https://github.com/ThatTokenGirl-utilities/http/commit/34809ea41713615adbf84950394b589719fab10b))
+
 #### 1.0.3 (2020-11-27)
 
 ##### Bug Fixes
