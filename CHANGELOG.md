@@ -1,3 +1,9 @@
+#### 1.0.3 (2020-11-27)
+
+##### Bug Fixes
+
+*  export requesters ([a17c0e1b](https://github.com/ThatTokenGirl-utilities/http/commit/a17c0e1bce53bd15b6c10d3ca2111c1daf129fad))
+
 #### 1.0.2 (2020-11-27)
 
 ##### New Features
