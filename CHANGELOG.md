@@ -1,3 +1,9 @@
+#### 1.0.2 (2020-11-27)
+
+##### New Features
+
+* **headers:**  add method to convert headers to key, value pairs ([10d9ba65](https://github.com/ThatTokenGirl-utilities/http/commit/10d9ba6562e09902ef0663e13c0e547bf2f7d2b9))
+
 #### 1.0.1 (2020-11-26)
 
 ##### Chores
