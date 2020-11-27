@@ -40,15 +40,14 @@ export default function fetchRequesterFactory(): Requester {
         ? await res.json()
         : await res.text();
 
-    const responseHeaders = Object.entries(res.headers).reduce(
-      (headers, [key, value]) => {
-        const values: string[] = (value ?? "").split(",");
-        headers[key] =
-          values.length === 0 ? "" : values.length === 1 ? values[0] : values;
-        return headers;
-      },
-      {} as any
-    );
+    const responseHeaders: any = {};
+
+    res.headers.forEach((value, key) => {
+      const values: string[] =
+        typeof value === "string" ? value.split(",") : [value + ""];
+      responseHeaders[key] =
+        values.length === 0 ? "" : values.length === 1 ? values[0] : values;
+    });
 
     return {
       url: res.url ?? "",

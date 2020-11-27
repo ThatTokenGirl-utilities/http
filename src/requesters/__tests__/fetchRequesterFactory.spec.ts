@@ -91,4 +91,28 @@ describe("requester: fetchRequester", () => {
     expect(response.status).toEqual(400);
     expect(response.statusText).toEqual("status text");
   });
+
+  test("headers are set on response", async () => {
+    const body = { one: "one", two: 2 };
+    const fetchResponse = new Response(JSON.stringify(body), {
+      status: 400,
+      statusText: "status text",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        // Technically headers can be non strings so t
+        header1: 1 as any,
+        header2: "1,2,3",
+      }),
+    });
+
+    fetchMock.mockImplementationOnce(() => Promise.resolve(fetchResponse));
+
+    const response = await httpClient.get("request_url");
+
+    expect(response.headers).toEqual({
+      "content-type": "application/json",
+      header1: "1",
+      header2: ["1", "2", "3"],
+    });
+  });
 });
