@@ -1,5 +1,5 @@
 import { entries } from "../headers";
-import { Requester } from "../requests";
+import { Requester } from ".";
 
 export default function fetchRequesterFactory(): Requester {
   return async (req) => {

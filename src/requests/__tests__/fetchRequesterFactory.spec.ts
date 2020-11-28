@@ -1,7 +1,6 @@
 import "isomorphic-fetch";
 
-import { HttpClient, httpClientFactory, HttpRequest } from "../../requests";
-import { fetchRequester } from "..";
+import { fetchRequester, HttpClient, httpClientFactory, HttpRequest } from "..";
 
 describe("requester: fetchRequester", () => {
   const fetchMock = jest
