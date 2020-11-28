@@ -1,12 +1,15 @@
 import { contentType } from "..";
-import { clone, httpClientFactory, HttpRequest } from "../../requests";
+import { addMiddleware, clone, HttpRequest } from "../../requests";
 
 describe("middleware: contentType", () => {
   test("adds content type to header", async () => {
     const requester = jest.fn();
     const request: HttpRequest = { url: "request-url", method: "POST" };
-    const client = httpClientFactory(requester, contentType("content type"));
-    await client.request(request);
+    const requesterWithMiddleware = addMiddleware(
+      requester,
+      contentType("content type")
+    );
+    await requesterWithMiddleware(request);
 
     expect(requester).toHaveBeenCalledWith(
       clone(request, {
@@ -22,11 +25,11 @@ describe("middleware: contentType", () => {
       method: "POST",
       headers: { "Content-Type": "content type" },
     };
-    const client = httpClientFactory(
+    const requesterWithMiddleware = addMiddleware(
       requester,
       contentType("new content type")
     );
-    await client.request(request);
+    await requesterWithMiddleware(request);
 
     expect(requester).toHaveBeenCalledWith(
       clone(request, {

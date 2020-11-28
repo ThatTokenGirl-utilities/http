@@ -1,26 +1,7 @@
-import { Middleware, MiddlewareHandler } from "../middleware/+types";
-import { HttpClient, HttpRequest, Requester } from "./+types";
+import { HttpClient, Requester } from "./+types";
 
-export default function httpClientFactory(
-  requester: Requester,
-  ...middleware: Middleware[]
-): HttpClient {
-  const request = async (
-    request: HttpRequest,
-    ...additionalMiddleware: Middleware[]
-  ) => {
-    const all = [...middleware, ...additionalMiddleware];
-    const action = all.length
-      ? all.reduceRight((handler: MiddlewareHandler, m) => {
-          return async (req) => await m(req, handler);
-        }, requester)
-      : requester;
-
-    const res = await action(request);
-
-    return res;
-  };
-
+export default function httpClientFactory(requester: Requester): HttpClient {
+  const request = requester;
   return {
     request,
     get: (url, opts = {}) => request({ ...opts, url, method: "GET" }),

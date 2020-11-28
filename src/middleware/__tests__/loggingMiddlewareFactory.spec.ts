@@ -1,15 +1,14 @@
 import { logging } from "..";
 import {
-  HttpClient,
+  addMiddleware,
   HttpRequest,
   HttpResponse,
   Requester,
 } from "../../requests";
-import { httpClientFactory } from "../../requests";
 
 describe("middleware: logging", () => {
   let requester: Requester;
-  let client: HttpClient;
+  let requesterWithMiddleware: Requester;
   let responsePromise: Promise<HttpResponse>;
 
   beforeEach(() => {
@@ -24,7 +23,7 @@ describe("middleware: logging", () => {
         error: jest.fn(),
       };
 
-      client = httpClientFactory(requester, logging({ logger }));
+      requesterWithMiddleware = addMiddleware(requester, logging({ logger }));
     });
 
     test("for success, logs both request and response", () => {
@@ -43,7 +42,7 @@ describe("middleware: logging", () => {
 
       responsePromise = Promise.resolve(response);
 
-      return client.request(request).then(() => {
+      return requesterWithMiddleware(request).then(() => {
         expect(logger.log).toHaveBeenCalledTimes(2);
         expect(logger.log).toHaveBeenCalledWith(request);
         expect(logger.log).toHaveBeenCalledWith(response);
@@ -66,7 +65,7 @@ describe("middleware: logging", () => {
 
       responsePromise = Promise.resolve(response);
 
-      return client.request(request).then((res) => {
+      return requesterWithMiddleware(request).then((res) => {
         expect(res).toBe(response);
       });
     });
@@ -80,7 +79,7 @@ describe("middleware: logging", () => {
 
       responsePromise = Promise.reject(error);
 
-      return client.request(request).catch(() => {
+      return requesterWithMiddleware(request).catch(() => {
         expect(logger.error).toHaveBeenCalledWith(request, error);
       });
     });
@@ -94,7 +93,7 @@ describe("middleware: logging", () => {
 
       responsePromise = Promise.reject(error);
 
-      return client.request(request).catch((err) => {
+      return requesterWithMiddleware(request).catch((err) => {
         expect(err).toBe(error);
       });
     });
