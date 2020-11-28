@@ -1,3 +1,9 @@
+#### 1.1.2 (2020-11-28)
+
+##### New Features
+
+* **middleware:**  middleware to add a base url to all requests ([6b04b5e8](https://github.com/ThatTokenGirl-utilities/http/commit/6b04b5e8f156f3cec2e5c8e8fc1e5fc65d6c4d14))
+
 #### 1.1.1 (2020-11-28)
 
 ##### Bug Fixes
