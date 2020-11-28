@@ -1,3 +1,9 @@
+#### 1.1.1 (2020-11-28)
+
+##### Bug Fixes
+
+*  output for public api ([e7321cfc](https://github.com/ThatTokenGirl-utilities/http/commit/e7321cfcbcd26ccd7992646c7ba1fc28c52634f3))
+
 ### 1.1.0 (2020-11-28)
 
 ##### Breaking Changes
