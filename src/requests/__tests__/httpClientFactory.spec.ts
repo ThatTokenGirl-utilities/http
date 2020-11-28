@@ -28,68 +28,6 @@ describe("function: makeRequestFactory", () => {
     });
   });
 
-  test("factory creates a request function that runs the global middleware in order", () => {
-    const first: Middleware = jest.fn((req, next) => {
-      expect(second).not.toHaveBeenCalled();
-      return next(req);
-    });
-
-    const second: Middleware = jest.fn((req, next) => {
-      expect(first).toHaveBeenCalled();
-      return next(req);
-    });
-
-    const { request: makeRequest } = httpClientFactory(
-      requester,
-      first,
-      second
-    );
-
-    return makeRequest(request).then((res) => {
-      expect(requester).toHaveBeenCalledWith(request);
-      expect(first).toHaveBeenCalledTimes(1);
-      expect(second).toHaveBeenCalledTimes(1);
-      expect(res).toEqual(response);
-    });
-  });
-
-  test("factory creates a request function that passes the modified request of first middleware into second", () => {
-    const firstRequest: HttpRequest = {
-      url: "first middleware",
-      method: "GET",
-      headers: {},
-    };
-
-    const first: Middleware = jest.fn((req, next) => {
-      expect(req).toEqual(request);
-      return next(firstRequest);
-    });
-
-    const secondRequest: HttpRequest = {
-      url: "second middleware",
-      method: "DELETE",
-      headers: {},
-    };
-
-    const second: Middleware = jest.fn((req, next) => {
-      expect(req).toEqual(firstRequest);
-      return next(secondRequest);
-    });
-
-    const { request: makeRequest } = httpClientFactory(
-      requester,
-      first,
-      second
-    );
-
-    return makeRequest(request).then((res) => {
-      expect(requester).toHaveBeenCalledWith(secondRequest);
-      expect(first).toHaveBeenCalledTimes(1);
-      expect(second).toHaveBeenCalledTimes(1);
-      expect(res).toEqual(response);
-    });
-  });
-
   test(`get function makes a 'GET' request`, () => {
     const client = httpClientFactory(requester);
 
