@@ -1,3 +1,17 @@
+### 1.1.0 (2020-11-28)
+
+##### Breaking Changes
+
+*  httpClientFactory no longer takes middleware arguments.  Use addMiddleware instead ([3432cbf4](https://github.com/ThatTokenGirl-utilities/http/commit/3432cbf49e02027e18c0bf6f52d0242138bbba6f))
+
+##### Chores
+
+*  Move fetch requester factory to requests folder ([a0f1b35e](https://github.com/ThatTokenGirl-utilities/http/commit/a0f1b35e8fb083c5c9283008b9069c2f033a21f0))
+
+##### New Features
+
+*  decorator function to create a requester with middleware ([c4c91d4f](https://github.com/ThatTokenGirl-utilities/http/commit/c4c91d4fba072e46e98f830bc48c8230e25252e5))
+
 #### 1.0.5 (2020-11-27)
 
 ##### Bug Fixes
