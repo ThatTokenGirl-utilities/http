@@ -1,5 +1,3 @@
-import "isomorphic-fetch";
-
 import { entries } from "../headers";
 import { Requester } from "../requests";
 
