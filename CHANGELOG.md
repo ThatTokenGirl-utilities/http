@@ -1,3 +1,9 @@
+### 1.3.0 (2020-12-01)
+
+##### Bug Fixes
+
+* **testing:**  add declaration file for testing ([a6bb5bd7](https://github.com/ThatTokenGirl-utilities/http/commit/a6bb5bd70565b45f3d353fcd063dc9a09f8bf8d7))
+
 ### 1.2.0 (2020-12-01)
 
 #### 1.1.2 (2020-11-28)
