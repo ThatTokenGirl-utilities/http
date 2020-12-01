@@ -1,3 +1,9 @@
+#### 1.3.1 (2020-12-01)
+
+##### Bug Fixes
+
+* **testing:**  fix to exporting testing library ([1dc63f81](https://github.com/ThatTokenGirl-utilities/http/commit/1dc63f819482614ca7779388226c29d0d3a51850))
+
 ### 1.3.0 (2020-12-01)
 
 ##### Bug Fixes
