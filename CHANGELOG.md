@@ -1,3 +1,9 @@
+### 1.4.0 (2020-12-02)
+
+##### New Features
+
+* **testing:**  path now acts as a decorator to a testhandler ([3f3deec0](https://github.com/ThatTokenGirl-utilities/http/commit/3f3deec00271cc0e02694f53f74179a055a90b0f))
+
 #### 1.3.3 (2020-12-02)
 
 ##### Bug Fixes
