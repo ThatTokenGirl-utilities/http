@@ -4,7 +4,7 @@ import { ok } from "../statuses";
 
 describe("handler: path", () => {
   const handler = jest.fn();
-  const requester = fakeRequesterFactory(path("one/two/:param", handler));
+  const requester = fakeRequesterFactory(path("one/two/:param")(handler));
 
   beforeEach(() => {
     handler.mockClear();
@@ -16,6 +16,21 @@ describe("handler: path", () => {
       };
 
       return Promise.resolve(response);
+    });
+  });
+
+  test("can chain path with other test handler", async () => {
+    const requestHandler = fakeRequesterFactory(path("one/:param")(ok()));
+
+    const response = await requestHandler({
+      url: "one/2",
+      method: "PUT",
+    });
+
+    expect(response).toEqual({
+      url: "one/2",
+      status: 200,
+      headers: {},
     });
   });
 
@@ -35,36 +50,18 @@ describe("handler: path", () => {
       });
     });
 
-    test("for null body, a new body is created with parameters from url added", async () => {
-      await requester(request);
-
-      expect(handler).toHaveBeenCalledWith(
-        clone(request, {
-          body: {
-            param: "three",
-          },
-        })
-      );
-    });
-
-    test("for existing body, parameters from url are added to body", async () => {
+    test("request and params are passed to handler", async () => {
       const newRequest = clone(request, {
         body: {
           value1: "one",
           value2: 2,
         },
       });
-
       await requester(newRequest);
 
-      expect(handler).toHaveBeenCalledWith(
-        clone(newRequest, {
-          body: {
-            ...newRequest.body,
-            param: "three",
-          },
-        })
-      );
+      expect(handler).toHaveBeenCalledWith(newRequest, {
+        param: "three",
+      });
     });
   });
 
