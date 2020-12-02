@@ -1,3 +1,9 @@
+#### 1.3.2 (2020-12-02)
+
+##### Bug Fixes
+
+* **testing:**  export httpmethods ([e35e1e42](https://github.com/ThatTokenGirl-utilities/http/commit/e35e1e4287aca60e33d057fcb6a5c231b1e1235f))
+
 #### 1.3.1 (2020-12-01)
 
 ##### Bug Fixes
