@@ -11,9 +11,7 @@ export default function path<T>(
 
   return (handler) => {
     return (req) => {
-      console.log(req);
       const match = matcher(req.url);
-      console.log(match);
       if (match) {
         return handler(req, match as any);
       }
