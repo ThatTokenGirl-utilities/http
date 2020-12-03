@@ -1,3 +1,9 @@
+#### 1.4.2 (2020-12-03)
+
+##### Bug Fixes
+
+* **testing:**  allow handler for path to return null to indicate that it's not handled ([e82eacff](https://github.com/ThatTokenGirl-utilities/http/commit/e82eacff632e12d2f513ce72bd6f3019ce5fe074))
+
 #### 1.4.1 (2020-12-02)
 
 ### 1.4.0 (2020-12-02)
