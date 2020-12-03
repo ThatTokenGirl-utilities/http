@@ -5,7 +5,7 @@ import { HttpRequest, HttpResponse } from "../../requests";
 export default function path<T>(
   template: string
 ): (
-  handler: (req: HttpRequest, params: T) => Promise<HttpResponse>
+  handler: (req: HttpRequest, params: T) => Promise<HttpResponse> | null
 ) => TestHandler {
   const matcher = createMatcher(template);
 

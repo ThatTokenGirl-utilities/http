@@ -19,7 +19,7 @@ describe("handler: path", () => {
     });
   });
 
-  test("can chain path with other test handler", async () => {
+  test("can chain path with status handler", async () => {
     const requestHandler = fakeRequesterFactory(path("one/:param")(ok()));
 
     const response = await requestHandler({
