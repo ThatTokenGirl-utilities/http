@@ -1,6 +1,6 @@
 {
   "name": "@thattokengirl-utilities/http",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "An abstraction to make http requests",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
