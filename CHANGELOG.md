@@ -1,5 +1,11 @@
 ### 1.5.0 (2020-12-16)
 
+##### Bug Fixes
+
+*  properly check if header contains content type for application/json ([fbfa40b6](https://github.com/ThatTokenGirl-utilities/http/commit/fbfa40b6da136e2e4ab834b17c0637653d4a09bf))
+
+### 1.5.0 (2020-12-16)
+
 #### 1.4.2 (2020-12-03)
 
 ##### Bug Fixes
