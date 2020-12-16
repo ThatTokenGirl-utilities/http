@@ -34,7 +34,7 @@ export default function fetchRequesterFactory(): Requester {
     );
 
     const body =
-      res.headers.get("Content-Type") === "application/json"
+      (res.headers.get("Content-Type")?.indexOf("application/json") ?? -1) >= 0
         ? await res.json()
         : await res.text();
 
