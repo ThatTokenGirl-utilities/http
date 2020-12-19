@@ -1,3 +1,9 @@
+### 1.6.0 (2020-12-19)
+
+##### New Features
+
+*  add middleware to convert body to json string ([7900373e](https://github.com/ThatTokenGirl-utilities/http/commit/7900373e4e82fc1e8637fb8c4f9ecfdce1018ca4))
+
 ### 1.5.0 (2020-12-16)
 
 ##### Bug Fixes
