@@ -5,3 +5,8 @@ export type Middleware = (
   req: HttpRequest,
   next: MiddlewareHandler
 ) => Promise<HttpResponse>;
+export type FormattedBody = string | object | boolean | number;
+export type Formatter = ((req: HttpRequest) => FormattedBody | null) | {
+    matches: string,
+    formatter: (body: string) => FormattedBody
+}
