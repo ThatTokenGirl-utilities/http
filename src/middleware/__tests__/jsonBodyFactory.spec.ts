@@ -18,12 +18,13 @@ describe('middleware: jsonBody', () => {
 
         expect(requester).toHaveBeenCalledWith(
             clone(request, {
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
             })
         )
     });
 
-    test(`doesn't convert body if body is undefined`, async () => {
+    test(`doesn't convert body if body is undefined; application/json added to header`, async () => {
         const requester = jest.fn();
         const request: HttpRequest = { url: "request-url", method: "POST" };
         const requesterWithMiddleware = addMiddleware(
@@ -33,11 +34,13 @@ describe('middleware: jsonBody', () => {
         await requesterWithMiddleware(request);
 
         expect(requester).toHaveBeenCalledWith(
-            request
+            clone(request, {
+                headers: { 'Content-Type': 'application/json' },
+            })
         )
     });
 
-    test(`doesn't convert body if body is null`, async () => {
+    test(`doesn't convert body if body is null; application/json added to header`, async () => {
         const requester = jest.fn();
         const request: HttpRequest = { url: "request-url", method: "POST", body: null };
         const requesterWithMiddleware = addMiddleware(
@@ -47,7 +50,9 @@ describe('middleware: jsonBody', () => {
         await requesterWithMiddleware(request);
 
         expect(requester).toHaveBeenCalledWith(
-            request
+            clone(request, {
+                headers: { 'Content-Type': 'application/json' },
+            })
         )
     });
 });
