@@ -1,3 +1,14 @@
+## 2.0.0 (2020-12-27)
+
+##### Breaking Changes
+
+*  change to functionality of jsonBody.  It now converts the response body to a json object ([87598791](https://github.com/ThatTokenGirl-utilities/http/commit/87598791b370657d50dc1d1ceb0bef12b47ee9cb))
+
+##### New Features
+
+*  add contentformatter middleware to format body of the request ([6c9003a3](https://github.com/ThatTokenGirl-utilities/http/commit/6c9003a3cc772f7a45f9f39f482123e1f6a96206))
+*  add application/json to header for jsonbody ([e9851c6d](https://github.com/ThatTokenGirl-utilities/http/commit/e9851c6db553b0fced4bafbaf6e0d41fa0edabfe))
+
 ### 1.6.0 (2020-12-19)
 
 ##### New Features
