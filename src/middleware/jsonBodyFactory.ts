@@ -3,12 +3,16 @@ import { clone } from "../requests";
 import { Middleware } from "./+types";
 
 export default function jsonBodyFactory(): Middleware {
-    return (req, next) => {
-        req = clone(req, {
-            headers: modify(req.headers, { "Content-Type": "application/json" }),
-            body: req.body === undefined || req.body === null ? req.body : JSON.stringify(req.body)
-        });
+    return async (req, next) => {
+        let response = await next(req);
 
-        return next(req);
+        if(response && typeof response.body === 'string') {
+            response = {
+                ...response,
+                body: JSON.parse(response.body)
+            };
+        }
+
+        return response;
     }
 }
