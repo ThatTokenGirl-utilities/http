@@ -1,3 +1,9 @@
+#### 2.0.1 (2020-12-29)
+
+##### Bug Fixes
+
+*  jsonBody can handle response bodies that are empty strings ([0d2ac02d](https://github.com/ThatTokenGirl-utilities/http/commit/0d2ac02dff098861a032640c43d2eccbb715aff5))
+
 ## 2.0.0 (2020-12-27)
 
 ##### Breaking Changes
