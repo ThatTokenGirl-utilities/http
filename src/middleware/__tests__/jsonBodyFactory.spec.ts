@@ -22,11 +22,34 @@ describe('middleware: jsonBody', () => {
         );
         const result = await requesterWithMiddleware(request);
 
-        expect(requester).toHaveBeenCalledWith(request
-        );
+        expect(requester).toHaveBeenCalledWith(request);
         expect(result).toEqual({
             ...response,
             body: JSON.parse(response.body)
         });
     });
+
+    test('works when body is an empty string', async () => {
+        const response: HttpResponse = {
+            url: 'test',
+            status: 200,
+            headers: {},
+            body: ""
+        }
+        const requester = jest.fn().mockResolvedValue(response);
+        const body = {
+            one: 1,
+            two: 'two',
+            three: true
+        };
+        const request: HttpRequest = { url: "request-url", method: "POST", body };
+        const requesterWithMiddleware = addMiddleware(
+            requester,
+            jsonBody()
+        );
+        const result = await requesterWithMiddleware(request);
+
+        expect(requester).toHaveBeenCalledWith(request);
+        expect(result).toEqual(response);
+    })
 });
